@@ -51,7 +51,8 @@ static NSNumberFormatter *_valueFormatter;
                                 HMCharacteristicTypeLockManagementControlPoint: NSLocalizedString(@"Lock Management Control Point", @"Lock Management Control Point"),
                                 HMCharacteristicTypeLockManagementAutoSecureTimeout: NSLocalizedString(@"Lock Management Auto Secure Timeout", @"Lock Management Auto Secure Timeout"),
                                 HMCharacteristicTypeTargetHeatingCooling: NSLocalizedString(@"Target Mode", @"Target Mode"),
-                                HMCharacteristicTypeCurrentHeatingCooling: NSLocalizedString(@"Current Mode", @"Current Mode") };
+                                HMCharacteristicTypeCurrentHeatingCooling: NSLocalizedString(@"Current Mode", @"Current Mode"),
+                                @"19800001-0000-1000-8000-0026BB765291": NSLocalizedString(@"Lock state", @"Lock state")};
 
     NSMutableDictionary *characteristicValueMap = @{ HMCharacteristicTypePowerState: @{@NO: NSLocalizedString(@"Off", @"Off"),
                                                                                        @YES: NSLocalizedString(@"On", @"On")},
@@ -83,7 +84,10 @@ static NSNumberFormatter *_valueFormatter;
                                                                                                          @(HMCharacteristicValueLockMechanismLastKnownActionSecuredUsingPhysicalMovementExterior): NSLocalizedString(@"Exterior Secured", @"Exterior Secured"),
                                                                                                          @(HMCharacteristicValueLockMechanismLastKnownActionSecuredUsingPhysicalMovementInterior): NSLocalizedString(@"Interior Secured", @"Interior Secured"),
                                                                                                          @(HMCharacteristicValueLockMechanismLastKnownActionUnsecuredUsingPhysicalMovementExterior): NSLocalizedString(@"Exterior Unsecured", @"Exterior Unsecured"),
-                                                                                                         @(HMCharacteristicValueLockMechanismLastKnownActionUnsecuredUsingPhysicalMovementInterior): NSLocalizedString(@"Interior Unsecured", @"Interior Unsecured")}}.mutableCopy;
+                                                                                                         @(HMCharacteristicValueLockMechanismLastKnownActionUnsecuredUsingPhysicalMovementInterior): NSLocalizedString(@"Interior Unsecured", @"Interior Unsecured")},
+                                                     @"19800001-0000-1000-8000-0026BB765291": @{@(0):NSLocalizedString(@"Unlock", @"Unlock"),
+                                                                                                @(1):NSLocalizedString(@"Lock", @"Lock"),
+                                                                                                @(2):NSLocalizedString(@"Double lock", @"Double lock")}}.mutableCopy;
 
     // The current/target values are exactly the same, so just copy their maps over.
     characteristicValueMap[HMCharacteristicTypeCurrentDoorState] = characteristicValueMap[HMCharacteristicTypeTargetDoorState];
